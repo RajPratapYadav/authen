@@ -41,7 +41,7 @@ passport.deserializeUser((user, done) => {
 });
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost/auth_system', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://r7905455:<password>@cluster0.c2ypzfg.mongodb.net/login', { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
