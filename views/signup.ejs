@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <!-- Link to your CSS file (style.css) for styling -->
+    <link rel="stylesheet" href="/style.css">
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Wrap the content in a card-like container -->
+    <div class="card-container">
+        <div class="container">
+            <h2>Signup</h2>
+            <form class="login-form"  method="post" action="/user/signup">
+            
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+                <!-- Apply the signup-button class with different colors -->
+                <button class="signup-button signup-blue login-button" type="submit"  onclick="window.location.href = '/home'">Signup</button>
+                
+            </form>
+            <div>
+            <button style="background-color: green; width: 100%;" onclick="window.location.href = '/'" class="signup-button signup-blue login-button" >
+                <a href="/" style="color: white; text-decoration: none;"  >Signin</a></button>
+            </div>
+            <div class="google-icon">
+                <a href="/auth/google">
+                    <i class="fab fa-google" style="color: red;"></i> Signup with Google
+                </a>
+            </div>
+          
+        </div>
+    </div>
+    
+
+    <script>
+        const signupForm = document.querySelector('.signup-form');
+        signupForm.addEventListener('submit', async (e) => {
+            const email = document.querySelector('#email').value;
+            const password = document.querySelector('#password').value;
+            const confirmPassword = document.querySelector('#confirm-password').value;
+
+            localStorage.setItem("userEmail", email);
+            if (password !== confirmPassword) {
+                alert('Password and confirm password do not match.');
+                return;
+            }
+
+            const response = await fetch('/user/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            if (response.status === 201) {
+                // Signup successful, you can handle the redirection here
+                window.location.href = '/home';
+            }else if (response.status === 201) {
+                // Signup successful, you can handle the redirection here
+                window.location.href = '/home';
+            
+            } else {
+                // Handle other responses as needed
+                alert('Signup failed. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>

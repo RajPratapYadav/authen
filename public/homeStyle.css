@@ -1,0 +1,79 @@
+/* Styling for the background image */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* Place it behind other content */
+}
+/* Styling for the background image 
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('path/to/your/image.jpg'); 
+    background-size: cover;
+    background-position: center;
+    z-index: -1; 
+}
+
+ Styling for the content container */
+.container {
+    text-align: center;
+    color: #fff; /* Text color on top of the background image */
+    padding: 20px;
+    position: relative; /* Needed for the absolute positioning of options */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Center content vertically on the screen */
+}
+
+.container h2 {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+/* Styling for the options */
+.options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.options a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 20px;
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.options a:hover {
+    background-color: #fff;
+    color: #007bff; /* Blue color on hover */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .options {
+        flex-direction: column;
+    }
+
+    .options a {
+        margin: 10px 0;
+    }
+}
