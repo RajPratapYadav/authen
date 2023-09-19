@@ -21,7 +21,7 @@ passport.use(
           clientID: '704299662502-d41mfbum7k35bevlqipofck2gu3u7r55.apps.googleusercontent.com',
           clientSecret: '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',
           ///callbackURL: 'http://localhost:3000/auth/google/callback',    
-            callbackURL: 'http://localhost:3000/auth/google/callback',
+            callbackURL: 'http://ec2-13-49-38-159.eu-north-1.compute.amazonaws.com:3000/auth/google/callback',
         },
         (accessToken, refreshToken, profile, done) => {
             // This function handles the user's profile after successful login.
